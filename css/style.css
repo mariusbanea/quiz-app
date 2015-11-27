@@ -1,0 +1,110 @@
+/* CSS reset 
+	(all the browsers will see the website in the same by setting every tag to 0 (the website will look the same on all browsers))
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+}
+
+
+/* General styles 
+	(the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules bellow (h2, h3, h4, h5, h6, p, a, ul, li))
+*/
+@font-face {
+    font-family: ferrari;
+    src: url(../ferro-rosso/FerroRosso.ttf);
+}
+body {
+	text-align: center;
+	font-family: arial;
+	font-size: 1.5rem;
+}
+.text{
+	color: #FF4141;
+	padding-bottom: 1rem;
+}
+
+/* Header styles 
+	(all the styles inside the < header > or < nav > tags) 
+*/
+.background {
+	  background: rgba(0, 0, 0, 0) url("../images/background.jpg") no-repeat scroll center top / cover ;
+    display: block;
+    height: 100%;
+    opacity: 0.9;
+    position: absolute;
+    width: 100%;
+    z-index: -999;
+}
+.heading{
+	font-size: 3rem;
+	padding-top: 1rem;
+	margin-bottom: 2rem;
+	text-shadow: 3px 3px 3px black;
+	color: #ff4242;
+	font-family: ferrari;
+}
+.heading .logo{
+	margin-top: 1rem;
+	padding-top: 1rem;
+}
+.heading span{
+	padding-top: 0.5rem;
+}
+.start-button{
+	background-color: #9e9e9e;
+    border-color: #9e9e9e;
+    border-radius: 30px;
+    border-style: none;
+    color: white;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    text-shadow: none;
+    width: 9.688rem;
+    color:#000000
+}
+.start-button:hover{
+	background-color: #707070;
+}
+/* Content styles 
+	(all the styles inside the < sections > or < aside > tags)
+*/
+.start-section, .quiz-section, .result-section{
+	background-image: url("../images/transparent.jpg");
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+#choices{
+	color: #ff4141;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 60%;
+}
+.question-number{
+	color: #FF4141;
+	padding-top: 1.5rem;
+}
+#result_msg p {
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 1rem;
+}
+
+
+/* Footer styles 
+	(all the styles inside the < footer > tag)
+*/
+
+
+/* Responsive styles 
+	(the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
+*/
