@@ -118,11 +118,19 @@ body {
     padding-top: 1.5rem;
 }
 
-#result_msg p {
+#result_msg h3,
+#result_msg h4 {
     text-align: left;
     padding-top: 10px;
-    padding-bottom: 10px;
     font-size: 1rem;
+    color: wheat;
+    font-weight: 400;
+}
+
+#result_msg h4 {
+    font-size: 0.8rem;
+    padding-top: 3px;
+    padding-bottom: 10px;
 }
 
 
