@@ -107,8 +107,8 @@ $(document).ready(function () {
         $('#choices').empty();
         var choiceTotal = questions[questionNum].choices.length;
         for (var i = 0; i < choiceTotal; i++) {
-            //displays the answer choices
-            $('#choices').append("<input type='radio' class='option' name='option' value=" + i + ">" + " " + questions[questionNum].choices[i] + "<br>");
+            //loop thru the answer choices and create an dynamically generated row for each of them
+            $('#choices').append("<input type='radio' class='option' name='option' value=" + i + ">" + questions[questionNum].choices[i] + "<br>");
         }
     }
 
