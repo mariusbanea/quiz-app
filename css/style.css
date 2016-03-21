@@ -101,6 +101,7 @@ body {
     border-radius: 0.5rem;
     padding: 2rem;
     width: 32rem;
+    margin-bottom: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -111,6 +112,10 @@ body {
     margin-right: auto;
     text-align: left;
     width: 60%;
+}
+
+#choices input.option {
+    margin-right: 1rem;
 }
 
 .question-number {
