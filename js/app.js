@@ -124,10 +124,13 @@ $(document).ready(function () {
     /*--- Show quiz questions ---*/
     $('.quiz-section').on('click', '.option', function () {
 
+        //get the question answer from the user
         var answer = $("input[class='option']:checked").val();
+        //get the correct answer from the questionsArray above
         var correctAnswer = questionsArray[currentQuestionNumber].questionCorrectChoice;
+        //compare the user answer with the correct answer
         if (answer == correctAnswer) {
-            //if correct answer was selected
+            //if the answer was correct incremenet the total number of correct answers
             correctTotal++;
             //console.log(correctTotal);
         }
@@ -135,19 +138,22 @@ $(document).ready(function () {
         $('#result_msg').append("<h4>A: " + questionsArray[currentQuestionNumber].correctDetails + "</h4>");
 
 
-        //quiz is finished, show result-section
+        //if quiz is finished, show result-section
         if ((currentQuestionNumber + 1) == totalNumberOfQuestion) {
 
+            //show the final score
             $('#finalScore').text(correctTotal + "/" + totalNumberOfQuestion);
 
-            $('start-button').show();
-            //hide other "screens"
+            //hide other containers
             $('.quiz-section').hide();
             $('.start-section').hide();
             $('.result-section').show();
-        } else {
-            //continue to next question
+        }
+        //else continue to next question
+        else {
+            //increment the current question number
             currentQuestionNumber++;
+            //display the following question
             questionDisplay();
         }
     });
