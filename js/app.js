@@ -89,15 +89,33 @@ var correctTotal = 0;
 /*--- Step 2 - Defining functions ---*/
 
 function questionDisplay() {
-    //displays the current question
-    $('#questionNumberDisplay').text("Question " + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestion);
+
+    //update the each question text
     $('#question').text(questionsArray[currentQuestionNumber].questionText);
+
+
+
+    //display the what are the choices for the current question
+
+    //first delete all the existing choices before populating it with new ones
     $('#choices').empty();
+
+    //the get the total number of choices for the current question
     var choiceTotal = questionsArray[currentQuestionNumber].questionChoices.length;
+
+    //loop through all the choices and append them to the choices container
     for (var i = 0; i < choiceTotal; i++) {
         //loop thru the answer choices and create an dynamically generated row for each of them
-        $('#choices').append("<input type='radio' class='option' name='option' value=" + i + ">" + questionsArray[currentQuestionNumber].questionChoices[i] + "<br>");
+        var buildEachChoiceHTML = "<input type='radio' class='option' name='option' value=" + i + ">" + questionsArray[currentQuestionNumber].questionChoices[i] + "<br>";
+        //apped that row to the choices container in html
+        $('#choices').append(buildEachChoiceHTML);
     }
+
+
+
+    //displays the number of the current question
+    $('#questionNumberDisplay').text("Question " + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestion);
+
 }
 
 /*--- Step 3 - Defining functions ---*/
