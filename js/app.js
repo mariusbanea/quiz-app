@@ -84,20 +84,34 @@ var questionsArray = [
 
 var currentQuestionNumber = 0;
 var totalNumberOfQuestion = questionsArray.length;
-var correctTotal = 0;
+var totalNumberOfCorrectAnswers = 0;
 
 /*--- Step 2 - Defining functions ---*/
 
 function questionDisplay() {
-    //displays the current question
-    $('#questionNumberDisplay').text("Question " + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestion);
+
+    //1 - update the each question text
     $('#question').text(questionsArray[currentQuestionNumber].questionText);
+
+
+
+    //2 - display the what are the choices for the current question
+    //2.1 - first delete all the existing choices before populating it with new ones
     $('#choices').empty();
-    var choiceTotal = questionsArray[currentQuestionNumber].questionChoices.length;
-    for (var i = 0; i < choiceTotal; i++) {
-        //loop thru the answer choices and create an dynamically generated row for each of them
-        $('#choices').append("<input type='radio' class='option' name='option' value=" + i + ">" + questionsArray[currentQuestionNumber].questionChoices[i] + "<br>");
+    //2.2 - the get the total number of choices for the current question
+    var totalNumberOfChoices = questionsArray[currentQuestionNumber].questionChoices.length;
+    //2.3 - loop through all the choices and append them to the choices container
+    for (var i = 0; i < totalNumberOfChoices; i++) {
+        //2.3.1 - loop thru the answer choices and create a dynamically generated row for each of them
+        var buildEachChoiceHTML = "<input type='radio' class='option' name='option' value=" + i + ">" + questionsArray[currentQuestionNumber].questionChoices[i] + "<br>";
+        //2.3.2 append that row to the choices container in html
+        $('#choices').append(buildEachChoiceHTML);
     }
+
+
+
+    //3 - displays the number of the current question
+    $('#questionNumberDisplay').text("Question " + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestion);
 }
 
 /*--- Step 3 - Defining functions ---*/
@@ -125,14 +139,14 @@ $(document).ready(function () {
     $('.quiz-section').on('click', '.option', function () {
 
         //get the question answer from the user
-        var answer = $("input[class='option']:checked").val();
+        var userAnswer = $("input[class='option']:checked").val();
         //get the correct answer from the questionsArray above
         var correctAnswer = questionsArray[currentQuestionNumber].questionCorrectChoice;
         //compare the user answer with the correct answer
-        if (answer == correctAnswer) {
-            //if the answer was correct incremenet the total number of correct answers
-            correctTotal++;
-            //console.log(correctTotal);
+        if (userAnswer == correctAnswer) {
+            //if the answer was correct increment the total number of correct answers
+            totalNumberOfCorrectAnswers++;
+            //console.log(totalNumberOfCorrectAnswers);
         }
         $('#result_msg').append("<h3>Q: " + questionsArray[currentQuestionNumber].questionText + "</h3>");
         $('#result_msg').append("<h4>A: " + questionsArray[currentQuestionNumber].correctDetails + "</h4>");
@@ -142,7 +156,7 @@ $(document).ready(function () {
         if ((currentQuestionNumber + 1) == totalNumberOfQuestion) {
 
             //show the final score
-            $('#finalScore').text(correctTotal + "/" + totalNumberOfQuestion);
+            $('#finalScore').text(totalNumberOfCorrectAnswers + "/" + totalNumberOfQuestion);
 
             //hide other containers
             $('.quiz-section').hide();
@@ -166,6 +180,6 @@ $(document).ready(function () {
         $('.result-section').hide();
         //reset variables to start quiz again
         currentQuestionNumber = 0;
-        correctTotal = 0;
+        totalNumberOfCorrectAnswers = 0;
     });
 });
