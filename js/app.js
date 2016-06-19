@@ -114,7 +114,7 @@ function questionDisplay() {
     $('#questionNumberDisplay').text("Question " + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestion);
 }
 
-/*--- Step 3 - Defining functions ---*/
+/*--- Step 3 - Using functions ---*/
 
 $(document).ready(function () {
 
